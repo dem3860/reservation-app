@@ -24,7 +24,10 @@ export function Pagination({
     onPageChange(page + 1);
   };
 
-  const isLastPage = totalCount ? page * limit >= totalCount : disableNext;
+  const isLastPage =
+    typeof totalCount === "number"
+      ? totalCount === 0 || page * limit >= totalCount
+      : disableNext;
 
   return (
     <div className="flex justify-center items-center gap-4 mt-8">

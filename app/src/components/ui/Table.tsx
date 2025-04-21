@@ -13,9 +13,15 @@ type TableProps<T> = {
   data: T[];
   columns: Column<T>[];
   keyField: keyof T;
+  onRowClick?: (row: T) => void;
 };
 
-export function Table<T>({ data, columns, keyField }: TableProps<T>) {
+export function Table<T>({
+  data,
+  columns,
+  keyField,
+  onRowClick,
+}: TableProps<T>) {
   return (
     <div className="overflow-x-auto border rounded-xl shadow">
       <table className="min-w-full table-auto">
@@ -36,6 +42,7 @@ export function Table<T>({ data, columns, keyField }: TableProps<T>) {
             <tr
               key={String(row[keyField])}
               className="hover:bg-gray-50 border-t border-gray-200"
+              onClick={() => onRowClick?.(row)}
             >
               {columns.map((col) => (
                 <td

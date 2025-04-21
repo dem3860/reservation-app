@@ -1,7 +1,5 @@
-// app/admin/page.tsx
 "use client";
 
-// sampleです
 export default function AdminPage() {
   return (
     <main className="min-h-screen bg-gray-50 text-gray-900 p-8">

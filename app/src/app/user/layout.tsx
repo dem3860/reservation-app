@@ -1,14 +1,14 @@
 "use client";
 
 import SideNav from "@/components/ui/SideNav";
-import { useAdminGuard } from "@/features/admin/user/hooks/useAdminGurd";
+import { useUserGuard } from "@/features/user/hooks/useUserGurd";
 
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const isAuthorized = useAdminGuard();
+  const isAuthorized = useUserGuard();
 
   if (!isAuthorized) {
     return null;
