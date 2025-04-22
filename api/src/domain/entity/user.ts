@@ -15,6 +15,7 @@ export const User = z.object({
   role: UserRole,
   createdAt: z.date(),
   updatedAt: z.date(),
+  isDeleted: z.boolean(),
 });
 
 export type User = z.infer<typeof User>;

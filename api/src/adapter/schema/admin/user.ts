@@ -19,8 +19,14 @@ export const UserResponse = z.object({
   role: UserRole,
   createdAt: z.date(),
   updatedAt: z.date(),
+  isDeleted: z.boolean().optional(),
 });
 export type UserResponse = z.infer<typeof UserResponse>;
+
+export const UserId = z.object({
+  id: z.string(),
+});
+export type UserId = z.infer<typeof UserId>;
 
 export const UserListRequest = z.object({
   q: z.string().optional(),
@@ -52,6 +58,7 @@ export const toUserResponse = (user: User): UserResponse => ({
   role: user.role,
   createdAt: user.createdAt,
   updatedAt: user.updatedAt,
+  isDeleted: user.isDeleted,
 });
 
 export const toUserListResponse = (users: UserList): UserListResponse => ({

@@ -18,4 +18,5 @@ export type UserListRequest = z.infer<typeof UserListRequest>;
 
 export interface IAdminUserUseCase {
   list(input: UserListRequest): ResultAsync<UserList, DBError>;
+  delete(userId: string): ResultAsync<void, DBError>;
 }
