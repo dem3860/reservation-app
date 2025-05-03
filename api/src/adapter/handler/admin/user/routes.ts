@@ -90,7 +90,7 @@ adminUserRouter.openapi(listUsersRoute, async (c) => {
 
   const list = toUserListResponse(result.value);
   const res = UserListResponse.parse(list);
-  return c.json(res, 201);
+  return c.json(res, 200);
 });
 
 const deleteUserRoute = createRoute({

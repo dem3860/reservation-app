@@ -19,4 +19,5 @@ export type ListUsers200UsersItem = {
   role: ListUsers200UsersItemRole;
   createdAt: string;
   updatedAt: string;
+  isDeleted?: boolean;
 };
